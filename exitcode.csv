@@ -6,6 +6,7 @@ AtCoder の提出結果一覧表
 139,配列への範囲外アクセス
 
 
+(https://atcoder.jp/contests/abc074/glossary の内容を要約)
 [ステータス (略語の意味)],正誤,説明
 AC (Accepted),正,正答です。運営が用意したテストを全てパスし、正しいプログラムであると判定されました。
 CE (Compilation Error),誤,提出されたプログラムのコンパイルに失敗しました。
