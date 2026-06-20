@@ -51,9 +51,10 @@ print(a+b+c,end="")
 print(a+b+c,end=" ")
 for s in l:print(s,end='') # same as print(''.join(l)) (except final '\n')
 *_,=map(print,l) # same as for v in l:print(v)
+print(+x) # f:(can) bool -> print number
 print(*list)
 print(([list]+[0])[0])
-print(end=a[0])
+for c in s:f(c)and print(end=c) # same as print(''.join(c for c in s if f(c)))
 print([f'{i:0{n}b}'for i in l]) # n-bit zero-padded (for all in l)
 print(f'{x:.9f}') # Fixed decimal formatting applied to x
 def L():return[*map(int,input().split())]
@@ -180,6 +181,12 @@ c=lambda a:[{v:i for i,v in enumerate(sorted(set(a)),1)}[x]for x in a]
 c={v:i for i,v in enumerate(sorted(set(a)),1)} # map original value v -> compressed index c[v]
 
 r[b],r[a]=x,y=r[a],r[b];I[x],I[y]=b,a # I[box]=label, r[label]=box (d[content]=box):index, reverse, dynamic (ABC 395-D)
+
+# Interval Scheduling
+_,*I=[[*map(int,o.split())][::-1]for o in open(0)];I.sort();e=0;print(*[e:=r for r,l in I if e<=l])
+
+# flatten
+f=lambda L:sum((f(l)if list==type(l)else[l]for l in L),[])
 
 # A string S with len(S)==2*N is a "valid parenthesis sequence" if:
 # all(S[:2*i+1].count("(") >= i for i in range(N)) and (S.count("(") == S.count(")") == N)
