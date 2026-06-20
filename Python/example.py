@@ -8,13 +8,14 @@ n,*s=map(int,open(0)) # 1 row : 1 number
 *l,=map(int,open(0).read().split()) # same as l=[*map(int,open(0).read().split())]
 k,*l=map(int,open(0).read().split())
 *l,=map(int,[*open(0)][1].split())
-T,l,X,Y,Q,*E=map(int,open(0).read().split());a=E[:T];b=E[T:] # e.g. T\nl X Y\nQ\nE1\nE2...
+T,l,x,y,Q,*E=map(int,open(0).read().split());a=E[:T];b=E[T:] # e.g. T\nl x y\nQ\nE1\nE2...
 # single-use:map(int,o.split()), reused:[*map(int,o.split())]
 a=[[*map(int,o.split())]for o in open(0)] # a=[[*map(int, input().split())]for _ in[0]*n]
 _,*a=[map(int,o.split())for o in open(0)]
-(n,m),*I=[[*map(int,o.split())]for o in open(0)]
-(n,m),*s,p=[map(int,o.split())for o in open(0)]
+(n,m),*I=[map(int,o.split())for o in open(0)]
+(n,m),*I,x=[[*map(int,o.split())]for o in open(0)]
 (r,c,s,d),(_,M,L),*I=[[*map(int,s.translate(str.maketrans('UDRL','0123')).split())]for s in open(0)] # replace 3 pairs or more
+z=1j**'RULD'.find(c);i=x+int(z.real);j=y+int(z.imag) # find the next point to reach
 print(input().translate({78:83,83:78,69:87,87:69})) # = print(input().translate(str.maketrans('NSEW','SNWE')))
 r=str.replace # for 3+ replacements including non‑1→1 cases (else: 1–2 replacements → replace, 3+ all 1→1 → maketrans)
 # r=str.replace;(r,c,s,d),(_,M,L),*I=[[*map(int,s.r(*'U0').r(*'D1').r(*'R2').r(*'L3').split())]for s in open(0)] # bad example
@@ -51,7 +52,7 @@ print(a+b+c,end="")
 print(a+b+c,end=" ")
 for s in l:print(s,end='') # same as print(''.join(l)) (except final '\n')
 *_,=map(print,l) # same as for v in l:print(v)
-print(+x) # f:(can) bool -> print number
+print(+x) # x:(can) bool -> print number
 print(*list)
 print(([list]+[0])[0])
 for c in s:f(c)and print(end=c) # same as print(''.join(c for c in s if f(c)))
@@ -131,10 +132,6 @@ for i in q:
  # something
  q+=n, # q+=(n,) -> q=[...,[n]]
 
-# graph
-*g,=eval('[],'*7**6)
-for x,y in e:g[x]+=y,;g[y]+=x,
-
 # integral image / summed-area table (2-dim prefix sum)
 for i in range(n):
  for j in range(n):
@@ -176,7 +173,7 @@ while x<1<<n:"do something";i=x&-x;j=x+i;x=(x^j)//i>>2|j
 from math import gcd
 g=lambda a,b:g(b,a%b)if b else abs(a)
 
-# coordinate compression
+# Coordinate Compression
 c=lambda a:[{v:i for i,v in enumerate(sorted(set(a)),1)}[x]for x in a]
 c={v:i for i,v in enumerate(sorted(set(a)),1)} # map original value v -> compressed index c[v]
 
