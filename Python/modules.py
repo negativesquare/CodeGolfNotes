@@ -138,3 +138,8 @@ a=[[1,2,0],[-3,4,1],[1,3,2],[3,6,3]];a.sort(key=cmp_to_key(f)) # [[-3, 4, 1], [1
 # T.set(p,x), T.get(p), T.prod(l,r) : 同上
 # T.apply(l,r,f) : for i in range(l,r):list[i]=f(list[i]) (上のusecaseなら(f<Mのとき)各要素にfを加算or上書き)
 
+
+# Convolution
+# Σ(a[i]*x**i)*Σ(b[j]*x**j) ≡ Σ(c[k]*x**k) mod M
+# from atcoder.convolution import* -> c=convolution(M,a,b)
+# from acl_cpp.convolution import* -> c=convolution(a,b,M) <- faster

@@ -36,7 +36,7 @@
 
 ## `FFT.py`
 高速フーリエ変換（FFT）の実装コード。
-せっかく書いたので残しているが、実際には **`from atcoder.convolution import*`** を使う方が短く、かつ高速。
+せっかく書いたので残しているが、実際には **`from acl_cpp.convolution import*`** を使う方が短く、かつ高速。
 
 ---
 
