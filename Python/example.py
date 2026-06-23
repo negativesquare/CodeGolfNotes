@@ -16,6 +16,7 @@ _,*a=[map(int,o.split())for o in open(0)]
 (n,m),*I,x=[[*map(int,o.split())]for o in open(0)]
 (r,c,s,d),(_,M,L),*I=[[*map(int,s.translate(str.maketrans('UDRL','0123')).split())]for s in open(0)] # replace 3 pairs or more
 z=1j**'RULD'.find(c);i=x+int(z.real);j=y+int(z.imag) # find the next point to reach
+for i in-2,4,5,9:i,j=x+i%3-1,y+i%4-1 # make the next point to reach, same as "for i,j in(x,y-1),(x,y+1),(x-1,y),(x+1,y):"
 print(input().translate({78:83,83:78,69:87,87:69})) # = print(input().translate(str.maketrans('NSEW','SNWE')))
 r=str.replace # for 3+ replacements including non‑1→1 cases (else: 1–2 replacements → replace, 3+ all 1→1 → maketrans)
 # r=str.replace;(r,c,s,d),(_,M,L),*I=[[*map(int,s.r(*'U0').r(*'D1').r(*'R2').r(*'L3').split())]for s in open(0)] # bad example
