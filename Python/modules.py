@@ -21,6 +21,11 @@ from random import*;randint(1,n)
 
 import re
 
+from sympy import* # <- @AtCoder, CPython is faster than PyPy
+isprime(n)
+[*primerange(n+1)] # [*generator]: get all prime numbers in range
+divisors(n) # ordered list
+
 # numpy(https://chokkan.github.io/python/17numpy2.html, https://atcoder.jp/contests/dp/submissions/30484080)
 # CPython is maybe faster
 # summed-area table (2-dim prefix sum)

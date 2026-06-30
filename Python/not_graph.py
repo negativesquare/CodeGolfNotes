@@ -1,3 +1,4 @@
+# The following prime-related code has "sympy" equivalents; see modules.py
 # primes by eratosthenes
 def e(n):
  t=[0,0]+[1]*n
