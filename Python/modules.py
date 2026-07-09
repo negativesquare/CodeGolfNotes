@@ -149,3 +149,8 @@ a=[[1,2,0],[-3,4,1],[1,3,2],[3,6,3]];a.sort(key=cmp_to_key(f)) # [[-3, 4, 1], [1
 # Σ(a[i]*x**i)*Σ(b[j]*x**j) ≡ Σ(c[k]*x**k) mod M
 # from atcoder.convolution import* -> c=convolution(M,a,b)
 # from acl_cpp.convolution import* -> c=convolution(a,b,M) <- faster
+
+
+# DSU = Disjoint Set Union = Union-Find
+# from atcoder.dsu import*;D=DSU(n) # n = size of the universal set (0-indexed)
+# D.merge(a,b), D.same(a,b), D.size(a), D.groups() : self‑explanatory methods

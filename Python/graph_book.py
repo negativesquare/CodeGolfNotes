@@ -136,7 +136,8 @@ class UnionFind:
  # Check if connected
  def same(self,u,v):return self.root(u)==self.root(v)
 
-# 以下、圧縮版
+# 以下、圧縮版①
+# from atcoder.dsu import* を使う手もあるが、実は下記(の②,③)を使った方が短い場合が多い
 par=[*range(n)];siz=[1]*n;comp=n
 def R(x):
  while par[x]-x:par[x]=x=par[par[x]] # At least in PyPy, same as par[x]=par[par[x]];x=par[x]
@@ -144,13 +145,13 @@ def R(x):
 def U(u,v):
  if(u:=R(u))-(v:=R(v)):siz[u]<siz[v]and(u,v:=v,u);par[v]=u;siz[u]+=siz[v];comp-=1 # need 'global comp'?
 # sameは事前準備せず適時同等操作で補う
-# さらに圧縮 経路圧縮してれば(u<v条件下で？無条件で？)sizは不要 さらにnを連結成分数と再解釈
+# ②さらに圧縮 経路圧縮してれば(u<vなどの追加条件なしで)sizは不要 さらにnを連結成分数と再解釈
 (n,m),*e=[map(int,o.split())for o in open(0)];P=[*range(-~n)]
 def R(x):
  while P[x]-x:P[x]=x=P[P[x]]
  return x
 for x,y in e:n-=R(x)!=R(y);P[R(y)]=R(x)
-# 別解(厳密・高速にやりたい場合は f=lambda x:0<P[x]and f(P[x])or x と a,b=sorted(map(f,l),key=lambda x:P[x]))
+# ③別解(厳密・高速にやりたい場合は f=lambda x:0<P[x]and f(P[x])or x と a,b=sorted(map(f,l),key=lambda x:P[x]))
 (n,_),*e=[map(int,o.split())for o in open(0)];P=[-1]*-~n;f=lambda x:x*(0>P[x])or f(P[x])
 for l in e:
  a,b=sorted(map(f,l))
