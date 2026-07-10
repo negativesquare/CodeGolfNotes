@@ -75,3 +75,14 @@ n,t,m,k=map(int,input().split());d=[1]+[0]*k;C=Young(m,n)
 for _ in[0]*t:d=[max(sum(d[max(i-j,0)]for j in l)for l in C)/m for i in range(k+1)]
 print(d[k])
 
+
+# Digit DP (count numbers in range(input) that satisfy conditions)
+f=...;g=... # state update/condition functions
+d={(1,0):1} # in practice, use integer keys to avoid TLE
+for c in map(int,input()):
+ d,e={},d
+ for(p,t),v in e.items():
+  i=[9,c][p] # free->free:0..9, max->max:c, max->free:0..c-1
+  while-~i:d[k]=d.get(k:=(p,f(i,t)),0)+v;p=0;i-=1
+print(sum(v for(_,t),v in d.items()if g(t)))
+
