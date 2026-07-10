@@ -76,7 +76,7 @@ for _ in[0]*t:d=[max(sum(d[max(i-j,0)]for j in l)for l in C)/m for i in range(k+
 print(d[k])
 
 
-# Digit DP (count numbers in range(input) that satisfy conditions)
+# Digit DP (count numbers in 0..n that satisfy conditions)
 f=...;g=... # state update/condition functions
 d={(1,0):1} # in practice, use integer keys to avoid TLE
 for c in map(int,input()):
