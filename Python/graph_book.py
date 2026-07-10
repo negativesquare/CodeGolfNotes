@@ -158,7 +158,7 @@ for l in e:
  if a-b:P[a]+=P[b];P[b]=a
 # Union-Find と 連結成分 ここまで
 
-# 最小全域木(MST)とクラスカル法
+# 最小全域木(MST = Minimum Spanning Tree)とクラスカル法
 # : 貪欲法とUnion-Findによる最小コスト木の作成
 #   クラスカル法：辺をコストの昇順でソート → Union-Findでサイクルを検出 → 最小コストの木を構築
 import sys
@@ -177,14 +177,14 @@ def Kruskal(V,graph):
  graph.sort(key=lambda e:e[2]);UF=UnionFind(V);total=0
  for u,v,w in graph:total+=w*(1-UF.same(u,v));UF.unite(u,v)
  return total
-# 圧縮版(圧縮版Union-Findを使用)
+# 圧縮版(圧縮版Union-Findを使用。なお読込時に[*map(int,o.split())][::-1]と要素を逆順にしてからgを通常のkeyでsortする方が短い)
 (n,m),*g=[[*map(int,o.split())]for o in open(0)];P=[*range(-~n)];s=0
 def R(x):
  while P[x]-x:P[x]=x=P[P[x]]
  return x
-for x,y,c in sorted(g,key=lambda e:e[2]):s+=c*(t:=R(x)!=R(y));n-=t;P[R(y)]=R(x)
+for x,y,c in sorted(g,key=lambda e:e[2]):t=R(x)!=R(y);s+=c*t;n-=t;P[R(y)]=R(x)
 print(-(n>1)or s)
-# 最小全域木(MST)とクラスカル法 ここまで
+# 最小全域木(MST = Minimum Spanning Tree)とクラスカル法
 
 # 最大フロー問題 (Ford-Fulkerson algorithm)
 class MaximumFlow:
