@@ -34,8 +34,8 @@ for a,b,c,d,w,x,y,z in zip(*[O:=map(int,open(0).read().split())]*8):pass # or ne
 (n,m),*E=[map(int,t.split())for t in open(0)];(k,T),D,q,*L=E[m:] # Extract additional parameters; earlier data E[:m] will be used later
 _,s=open(c:=0) # initialize as 0, read second (and last) line
 a,b=map(int,open(0))
-s=input()
 f=lambda:map(int,input().split());t,=f()
+s=input(f'? {x} {y}\n') # use in interactive problems
 l=[];l+=int(input()),
 a,b,c,x=[1+int(input())for _ in[0]*4]
 for _ in[0]*n:pass
