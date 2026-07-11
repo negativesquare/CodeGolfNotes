@@ -12,7 +12,7 @@ T,l,x,y,Q,*E=map(int,open(0).read().split());a=E[:T];b=E[T:] # e.g. T\nl x y\nQ\
 # single-use:map(int,o.split()), reused:[*map(int,o.split())]
 a=[[*map(int,o.split())]for o in open(0)] # a=[[*map(int, input().split())]for _ in[0]*n]
 _,*a=[map(int,o.split())for o in open(0)]
-(n,m),*I=[map(int,o.split())for o in open(0)]
+(n,m),*I=[map(int,o.split())for o in open(0)] # afterwards, you can write: for*l,in I:'something'
 (n,m),*I,x=[[*map(int,o.split())]for o in open(0)]
 (r,c,s,d),(_,M,L),*I=[[*map(int,s.translate(str.maketrans('UDRL','0123')).split())]for s in open(0)] # replace 3 pairs or more
 z=1j**'RULD'.find(c);i=x+int(z.real);j=y+int(z.imag) # find the next point to reach
