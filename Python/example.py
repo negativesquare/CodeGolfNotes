@@ -24,7 +24,8 @@ for o in open(0):a,*b=map(int,o.split());pass
 for o in open(0):a,b,c=[*map(int,o.split())]+[0];pass
 for o in[*open(0)][2::2]:a,*b=map(int,o.split());pass
 for o in[*open(0)][2::2]:a,b,c=[*map(int,o.split())]+[0];pass
-for l in[*open(0)][1:]:a,b,c=map(int,l.split());pass
+for o in[*open(0)][1:]:a,b,c=map(int,o.split());pass
+for o in[*open(0)][:0:-1]:a,b,c=map(int,o.split());pass # read from last line, ignore first line
 for i,n in enumerate(map(int,input().split())):pass
 for i,n in enumerate(sorted(map(int,input().split()))):pass
 next(O:=open(0)) # continue to next row (this means: I=iter(open(0));next(I) )
