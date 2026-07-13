@@ -54,7 +54,7 @@ l=...
 o=[-1<<30]
 for v in l:
  while v<l[-1]:l.pop()
- l+=v,;"do something"
+ l+=v,;'do something'
 
 
 def _Young(sets,seed,n,p):

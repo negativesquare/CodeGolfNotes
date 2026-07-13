@@ -47,11 +47,11 @@ digits=[int(d)for d in str(n)]
 digits_map=[[*map(int,input())]for _ in l]
 letters=[*input()]
 l=[[*s]for s in[*open(0)][1:]]
-print("{} {}".format(a+b+c,s))
+print(f'{a+b+c} {s}') # = print('{} {}'.format(a+b+c,s))
 print(a+b+c,s) # space-separated
-print(a+b+c,s,sep=", ")
-print(a+b+c,end="")
-print(a+b+c,end=" ")
+print(a+b+c,s,sep=', ')
+for a,b,c in l:print(a+b+c,end='')
+for a,b,c in l:print(a+b+c,end=' ')
 for s in l:print(s,end='') # same as print(''.join(l)) (except final '\n')
 *_,=map(print,l) # same as for v in l:print(v)
 print(+x) # x:(can) bool -> print number
@@ -100,7 +100,7 @@ for c in range(26):c=chr(c+97);... # from 'a' to 'z'
 b=f'{i:b}' # decimal to binary (= bin(int(s))[2:])
 b=f'{i:0{n}b}' # n-digits
 i=int(b,2) # binary to decimal
-f*=f<(x:=s.find(c,x+1)) # s="abcdefabc",x=1 -> x:=6 [super-speed-searcher@Cpython! O(n)]
+f*=f<(x:=s.find(c,x+1)) # s='abcdefabc',x=1 -> x:=6 [super-speed-searcher@Cpython! O(n)]
 mr=[*zip(*s[::-1])] # clockwise rotation, list of tuples
 ml=[*zip(*m)][::-1] # counterclockwise rotation, list of tuples
 while chr(i)in s:i+=1
@@ -124,7 +124,7 @@ t=s.pop() # get (and remove) one element
 d={}
 for a in input().split():d[a]=d.get(a,0)+1
 sum(d.values())
-l=sum(v>2 for v in d.values());print("YNeos"[(l>1)+l*(2 in d.values())<1::2])
+l=sum(v>2 for v in d.values());print('YNeos'[(l>1)+l*(2 in d.values())<1::2])
 print(max(*[k for k,v in d.items()if v<2],-1))
 d.pop(a,0) # if d in s:del d[a]
 
@@ -165,11 +165,11 @@ C=lambda n,r:0<=r<=n and(r<1 or C(n-1,r-1)*n//r)
 F=[1]+[v:=v*i%M for i in range(1,4**9)];C=lambda n,r:0<=r<=n and F[n]*pow(F[r]*F[n-r],-1,M)%M
 
 # Enumerate all subsets of bitmask n in decreasing order
-while t:"do something";t=t-1&n
+while t:'do something';t=t-1&n
 
 # Enumerate all bit patterns with bit_length=n and bit_count=k
 x=2**k-1
-while x<1<<n:"do something";i=x&-x;j=x+i;x=(x^j)//i>>2|j
+while x<1<<n:'do something';i=x&-x;j=x+i;x=(x^j)//i>>2|j
 
 # 2-way of gcd
 from math import gcd
@@ -188,9 +188,9 @@ _,*I=[[*map(int,o.split())][::-1]for o in open(0)];I.sort();e=0;print(*[e:=r for
 f=lambda L:sum((f(l)if list==type(l)else[l]for l in L),[])
 
 # A string S with len(S)==2*N is a "valid parenthesis sequence" if:
-# all(S[:2*i+1].count("(") >= i for i in range(N)) and (S.count("(") == S.count(")") == N)
-f=lambda p,n,s:n<1>p and print(s)or n and f(p+1,n-1,s+"(")or p*n and f(p-1,n-1,s+")")
-f(0,int(input()),"")
+# all(S[:2*i+1].count('(') >= i for i in range(N)) and (S.count('(') == S.count(')') == N)
+f=lambda p,n,s:n<1>p and print(s)or n and f(p+1,n-1,s+'(')or p*n and f(p-1,n-1,s+')')
+f(0,int(input()),'')
 # other way to check if "valid parenthesis sequence": use stack
 
 l=[i for i in range(1<<n)if i>>1&i<1] # n-bit strings without '11', len(l)=Fibonacci(n+2)

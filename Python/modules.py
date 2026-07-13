@@ -78,7 +78,7 @@ q=deque(l) # l:iterable
 # https://docs.python.org/ja/3/library/itertools.html
 from itertools import*
 [*accumulate(l)] # slow -> [sum(l[:i+1])for i in range(l)]
-  # (if l is list of string, "".join(l[:i+1]) or sum(l[:i+1],""))
+  # (if l is list of string, ''.join(l[:i+1]) or sum(l[:i+1],''))
 [*permutations(range(n))] # Full permutation search
 [*combinations(range(n),r)] # Full combination search
 
