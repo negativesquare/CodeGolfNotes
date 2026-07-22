@@ -111,6 +111,10 @@ f=lambda x,y:x[0]*y[1]-y[0]*x[1]or x[2]-y[2] # x=[a,b,c],y=[u,v,w] -> a/b ? u/v,
 a=[[1,2,0],[-3,4,1],[1,3,2],[3,6,3]];a.sort(key=cmp_to_key(f)) # [[-3, 4, 1], [1, 3, 2], [1, 2, 0], [3, 6, 3]]
 
 
+# from atcoder.fenwicktree import*;T=FenwickTree(n) n: size, initial value = 0
+# T.add(p,x) : T[p]+=x , T.sum(l,r) : sum(T[p] for p in range(l,r)) , so "T[p]=x" is done by: T.add(p,x-T.sum(p,p+1))
+
+
 # atcoder.segtree : モノイドの区間積を得るライブラリ
 # from atcoder.segtree import*
 
