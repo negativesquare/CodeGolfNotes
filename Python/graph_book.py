@@ -388,7 +388,7 @@ def Q(l,r): # [l,r)
 import modules
 # セグメント木 ここまで
 
-# BIT(Binary Indexed Tree, Fenwick Tree)
+# BIT(Binary Indexed Tree, Fenwick Tree) -> atcoder.segtree の方が多分短い
 # 0には最下位ビットがないので1-basedにする必要がある → このため随所でindexに1加算
 class Fenwick:
  def __init__(self,size):self.tree=[0]*(size+1)
