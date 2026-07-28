@@ -196,3 +196,13 @@ f(0,int(input()),'')
 l=[i for i in range(1<<n)if i>>1&i<1] # n-bit strings without '11', len(l)=Fibonacci(n+2)
 # DP using previous column with using above ('\n'in s, (x-1,y)makes(x,y) c.f. bits of L)
 h,*s=open(0);w=int(h.split()[1]);s=''.join(s);M=10**9+7;L=1<<w+1;n=len(B:=[i for i in range(L)if i>>1&i<1]);D={b:i for i,b in enumerate(B)};d=[1]+[0]*~-n
+
+# bit-DP (transitions only add a bit)
+n,*a=map(int,open(0).read().split());d=[i:=0]
+while-~i>>n:i+=1;d+=f(i,[d[i^1<<j]for j in range(n)if i>>j&1]),
+
+# historical last-occurrence matrix (coined term)
+n,m,*a=map(int,open(0).read().split());l=[i:=0]*m;d=[l[:]]
+for v in a:i+=1;l[v-1]=i;d+=l[:],
+# d=[l[:]] -> d=[l[:]]*2 : historical occurrence chain matrix (d[i][d[i][x]] gives the value two steps back)
+# with the initial d=[l[:]]*2, 3D doubling table can be constructed
