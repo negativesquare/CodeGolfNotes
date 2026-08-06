@@ -199,7 +199,7 @@ h,*s=open(0);w=int(h.split()[1]);s=''.join(s);M=10**9+7;L=1<<w+1;n=len(B:=[i for
 
 # bit-DP (transitions only add a bit)
 n,*a=map(int,open(0).read().split());d=[i:=0]
-while-~i>>n:i+=1;d+=f(i,[d[i^1<<j]for j in range(n)if i>>j&1]),
+while-~i>>n<1:i+=1;d+=f(i,[d[i^1<<j]for j in range(n)if i>>j&1]),
 
 # historical last-occurrence matrix (coined term)
 n,m,*a=map(int,open(0).read().split());l=[i:=0]*m;d=[l[:]]
