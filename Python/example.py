@@ -61,6 +61,7 @@ for c in s:f(c)and print(end=c) # same as print(''.join(c for c in s if f(c)))
 print([f'{i:0{n}b}'for i in l]) # n-bit zero-padded (for all in l)
 print(f'{x:.9f}') # Fixed decimal formatting applied to x
 def L():return[*map(int,input().split())]
+print(''.join(sum([*zip('Yes','No ')],()))) # mix two strings alternately (preconstruct)
 
 for i in[0]*input():...
 while i:...;i-=1 # i:initial->1
