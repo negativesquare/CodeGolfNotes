@@ -194,7 +194,7 @@ f=lambda p,n,s:n<1>p and print(s)or n and f(p+1,n-1,s+'(')or p*n and f(p-1,n-1,s
 f(0,int(input()),'')
 # other way to check if "valid parenthesis sequence": use stack
 
-l=[i for i in range(1<<n)if i>>1&i<1] # n-bit strings without '11', len(l)=Fibonacci(n+2)
+l=[i for i in range(1<<n)if i*2&i<1] # n-bit strings without '11', len(l)=Fibonacci(n+2)
 # DP using previous column with using above ('\n'in s, (x-1,y)makes(x,y) c.f. bits of L)
 h,*s=open(0);w=int(h.split()[1]);s=''.join(s);M=10**9+7;L=1<<w+1;n=len(B:=[i for i in range(L)if i>>1&i<1]);D={b:i for i,b in enumerate(B)};d=[1]+[0]*~-n
 
