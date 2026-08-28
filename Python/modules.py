@@ -114,8 +114,8 @@ a=[[1,2,0],[-3,4,1],[1,3,2],[3,6,3]];a.sort(key=cmp_to_key(f)) # [[-3, 4, 1], [1
 # networkx (slow because implemented in Python, not C)
 # https://networkx.org/documentation/stable/tutorial.html
 from networkx import*
-Graph((u,v)for u,v in e) # undirected edges u–v
-Graph((u,v,{0:w})for u,v,w in e) # with weight w in attribute 0
+g=Graph((u,v)for u,v in e) # undirected edges u–v
+g=Graph((u,v,{0:w})for u,v,w in e) # with weight w in attribute 0
 
 
 # from atcoder.fenwicktree import*;T=FenwickTree(n) n: size, initial value = 0
