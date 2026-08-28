@@ -186,7 +186,7 @@ for x,y,c in sorted(g,key=lambda e:e[2]):t=R(x)!=R(y);s+=c*t;n-=t;P[R(y)]=R(x)
 print(-(n>1)or s)
 # 最小全域木(MST = Minimum Spanning Tree)とクラスカル法
 
-# 最大フロー問題 (Ford-Fulkerson algorithm)
+# 最大フロー問題 (Ford-Fulkerson algorithm) -> atcoder.maxflow の方が圧倒的に短い
 class MaximumFlow:
  def __init__(self,n):
   self.used=[0]*-~n
