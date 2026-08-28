@@ -1,4 +1,4 @@
-a=f=l=m=n=y=... # dummy to avoid undefined-name warnings
+a=e=f=l=m=n=y=... # dummy to avoid undefined-name warnings
 ################
 
 import sys;sys.setrecursionlimit(7**6) # enable deep recursion; change 7**6 to required limit
@@ -111,6 +111,13 @@ f=lambda x,y:x[0]*y[1]-y[0]*x[1]or x[2]-y[2] # x=[a,b,c],y=[u,v,w] -> a/b ? u/v,
 a=[[1,2,0],[-3,4,1],[1,3,2],[3,6,3]];a.sort(key=cmp_to_key(f)) # [[-3, 4, 1], [1, 3, 2], [1, 2, 0], [3, 6, 3]]
 
 
+# networkx (slow because implemented in Python, not C)
+# https://networkx.org/documentation/stable/tutorial.html
+from networkx import*
+Graph((u,v)for u,v in e) # undirected edges u–v
+Graph((u,v,{0:w})for u,v,w in e) # with weight w in attribute 0
+
+
 # from atcoder.fenwicktree import*;T=FenwickTree(n) n: size, initial value = 0
 # T.add(p,x) : T[p]+=x , T.sum(l,r) : sum(T[p] for p in range(l,r)) , so "T[p]=x" is done by: T.add(p,x-T.sum(p,p+1))
 
@@ -158,6 +165,7 @@ a=[[1,2,0],[-3,4,1],[1,3,2],[3,6,3]];a.sort(key=cmp_to_key(f)) # [[-3, 4, 1], [1
 # DSU = Disjoint Set Union = Union-Find : 実のところ、これを使わない方が短い場合が多い
 # from atcoder.dsu import*;D=DSU(n) # n = size of the universal set (0-indexed)
 # D.merge(a,b), D.same(a,b), D.size(a), D.groups() : self‑explanatory methods
+
 
 # max-flow (min-cut)
 # from atcoder.maxflow import*
