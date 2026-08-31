@@ -109,9 +109,7 @@ print(dist)
 # warshall_floyd法 (全頂点探索、O(V**3))
 (n,m),*e=[map(int,o.split())for o in open(0)];r=range(n);d=[[9e9*(i!=j)for j in r]for i in r]
 for x,y,w in e:d[x][y]=w # "d[x][y]=min(d[x][y],w)","d[x][y]=d[y][x]=w"
-for k in r:
- for i in r:
-  for j in r:d[i][j]=min(d[i][j],d[i][k]+d[k][j])
+for k in r:d=[[min(d[i][j],d[i][k]+d[k][j])for j in r]for i in r]
 # クエリ使用版
 I=9**9;r=range(101);d=[[I*(i!=j)for j in r]for i in r]
 for a in[*open(0)][1:]:q,a,b,c,*_=map(int,a.split()+[I]);q<1!=print(d[a][b]%I or-1);d=[[min(l[j],l[a]+c+d[b][j],l[b]+c+d[a][j])for j in r]for l in d]
