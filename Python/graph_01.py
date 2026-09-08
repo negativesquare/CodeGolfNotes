@@ -237,19 +237,28 @@ def N(g,n=len(g),k=0):
  return k
 
 # 最近共通祖先(Lowest Common Ancestor: LCA)
-R=range;(N,),*L=[[*map(int,o.split())]for o in open(0)];i=j=1;M=[P:=[*R(N+1)]];S=[1]*-~N;D=S[:];r=S[:];G=[[] for _ in P];b=N.bit_length()-1;B=R(b,-1,-1)
-for x,y in L[:N-1]:G[x]+=y,;G[y]+=x,
-while i:
- i-=1;r[p:=S[i]]=j;j+=1
- for e in{*G[p]}-{P[p]}:S[i]=e;P[e]=p;i+=1;D[e]=D[p]+1
-for d in R(b):M+=[M[d][M[d][i]]for i in R(N+1)],
-def F(u,v):
- if D[u]>D[v]:u,v=v,u
- for d in B:1<<d<=D[v]-D[u]<(v:=M[d][v])
- if u-v:
-  for d in B:M[d][u]!=M[d][v]!=(u:=M[d][u],v:=M[d][v])
-  u=P[u]
- return u
+# 1. ダブリング祖先行列と深さ行列を作成(共通処理)
+# 2. 共通祖先aの深さを二分探索し、 (2点の深さの和)-2*(aの深さ) を求める
+# 2'. 深さを揃えてからビット探索 or 二分探索
+(n,*M),*I=[map(int,o.split())for o in open(0)];*D,=P=[0]*-~n;g=[[]for _ in P];q=[[1,1]]
+for x,y in I[:n-1]:g[x]+=y,;g[y]+=x,
+for p,v in q:
+ for w in g[v]:
+  if p-w:D[w]=D[v]+1;P[w]=v;q+=[v,w],
+for _ in[0]*17:M+=P[:],;P=[P[v]for v in P] # 17=n.bit_length() @ n=10**5
+ # both A have the same output; first is shorter, second is faster
+A=lambda i,b:A(M[t:=b.bit_length()-1][i],b^1<<t)if b else i
+A=lambda i,b:[i]+[i:=M[j][i]for j in range(17)if b>>j^1]and i # 17 >= b.bit_length()
+ # logic 2.
+for a,b in I[n:]:
+ x=min(i:=D[a],j:=D[b])+1;y=0
+ while~y+x:x,y=[x,m:=x+y>>1,y][A(a,i-m)!=A(b,j-m):][:2]
+ print(i+j-2*y)
+ # logic 2'. (ビット探索)
+for a,b in I[n:]:
+ x=min(i:=D[a],j:=D[b]);a=A(a,i-x);b=A(b,j-x);x=i+j-2*x;y=0;d=4**8
+ while d:y+=(A(a,y+d)!=A(b,y+d))*d;d>>=1
+ y+=a!=b;print(2*y-~x)
 
 # 各頂点の削除時に残る部分木の頂点数リスト (全方位木DP = Rerooting の例のつもりで書いたが、違うものになった)
 (n,),*e=[map(int,o.split())for o in open(0)];g,l=[[[]for _ in[0]*-~n]for _ in'01'];i=1
