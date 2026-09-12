@@ -14,7 +14,7 @@ a=[[*map(int,o.split())]for o in open(0)] # a=[[*map(int, input().split())]for _
 _,*a=[map(int,o.split())for o in open(0)]
 (n,m),*I=[map(int,o.split())for o in open(0)] # afterwards, you can write: for*l,in I:'something'
 (n,m),*I,x=[[*map(int,o.split())]for o in open(0)]
-(r,c,s,d),(_,M,L),*I=[[*map(int,s.translate(str.maketrans('UDRL','0123')).split())]for s in open(0)] # replace 3 pairs or more
+(r,c,s,d),(v,M,L),*I=[[*map(int,s.translate(str.maketrans('UDRL','0123')).split())]for s in open(0)] # replace 3 pairs or more
 z=1j**'RULD'.find(c);i=x+int(z.real);j=y+int(z.imag) # find the next point to reach
 for i in 1,2,6,7:i,j=x+i%3-1,y+i%4-2 # make the next point to reach, same as "for i,j in(x,y-1),(x,y+1),(x-1,y),(x+1,y):"
 print(input().translate({78:83,83:78,69:87,87:69})) # = print(input().translate(str.maketrans('NSEW','SNWE')))
@@ -127,7 +127,8 @@ for a in input().split():d[a]=d.get(a,0)+1
 sum(d.values())
 l=sum(v>2 for v in d.values());print('YNeos'[(l>1)+l*(2 in d.values())<1::2])
 print(max(*[k for k,v in d.items()if v<2],-1))
-d.pop(a,0) # if d in s:del d[a]
+d.pop(a,0) # delete a from d, same as 'if d in s:del d[a]'
+d=dict(zip(k,v)) # k:keys, v:values -> dict
 
 # the easiest queue
 q=[0]
