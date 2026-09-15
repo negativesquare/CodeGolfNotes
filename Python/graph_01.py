@@ -29,6 +29,15 @@ for i in Q:
  for j in g[i]:
   if v[j]<1<j:v[j]=1;Q+=j, # process each vertex
 
+# 行きがけ順(s:start)・帰りがけ順(e:end)での(木の上での)DFS numbering
+(n,),*I=[[*map(int,o.split())]for o in open(0)];*s,=e=[0]*-~n;g=[[]for _ in e];q=[1];i=j=1
+for u,v in I[:n-1]:g[u]+=v,;g[v]+=u,
+while q:
+ if s[t:=q[-1]]:e[q.pop()]=j;j+=1
+ else:q+=[v for v in g[t]if s[v]<1];s[t]=i;i+=1
+# sにも入力時点の帰りがけ番号を与え、 頂点番号をeで置換することで、 e[v]を根とする部分木=区間[s[v],e[v]]とできる
+while q:f=s[t:=q.pop()]<1;q+=[v for v in[t]+g[t]if s[v]<1]*f;[e,s][f][t]=i;i+=f^1
+
 # shortest_path (頂点間の辺の数＝重み1) with using queue (BFS)
 def D(s,g):
  d=[-1]*len(g);q=[s];d[s]=0
