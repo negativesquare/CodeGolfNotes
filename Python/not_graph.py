@@ -86,3 +86,7 @@ for c in map(int,input()):
   while-~i:d[k]=d.get(k:=(p,f(i,t)),0)+v;p=0;i-=1
 print(sum(v for(_,t),v in d.items()if g(t)))
 
+
+# 転倒数(inversion number, BITの応用:BIT使用時は座標圧縮が必要になる場合あり。それなしでも下記の方が短い)
+from sortedcontainers import*;l=SortedList();i=s=0
+for v in a:s+=i-l.bisect(v);l+=v,;i+=1

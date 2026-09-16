@@ -98,16 +98,6 @@ def B(a):
  return(d[q[-1]],q[-1])
 print(B(B(1)[1])[0])
 
-# 転倒数(inversion number, BITの応用)
-# 各要素が正整数かつ値がメモリ圧迫しない場合、座標圧縮部分は省略可
-c={v:i for i,v in enumerate(sorted(set(a)),1)};n=len(c);T=[s:=0]*-~n
-def U(i):
- while-~n>i:T[i]+=1;i+=i&-i
-def S(i,v=0):
- while i:v+=T[i];i-=i&-i
- return v
-for v in a:s+=S(c[v]-1);U(c[v])
-
 # ビット列を使ったDPによる巡回セールスマン問題(隣接行列の場合)
 def tsp(dist,is_cyclic):
  c=9e9;r=range;n=len(dist);R=r(n);d=[n*[c]for _ in[0]*(1<<n)]
