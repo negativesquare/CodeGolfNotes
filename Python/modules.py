@@ -145,11 +145,11 @@ g=Graph((u,v,{0:w})for u,v,w in e) # with weight w in attribute 0
 # usecase(M as Inf, Sum-type nodes hold [segment_len,sum]):
 # MinAddT=LazySegTree(min,M,lambda f,x:f+x,lambda f,g:f+g,0,list)
 # MaxAddT=LazySegTree(max,-M,lambda f,x:f+x,lambda f,g:f+g,0,list)
-# SumAddT=LazySegTree(lambda x,y:[x[0]+y[0],x[1]+y[1]],[0,0],lambda f,x:[x[0],x[1]+f*x[0]],lambda f,g:f+g,0,[[1,v]for v in list])
+# SumAddT=LazySegTree(lambda x,y:(x[0]+y[0],x[1]+y[1]),(0,0),lambda f,x:(x[0],x[1]+f*x[0]),lambda f,g:f+g,0,[(1,v)for v in list]) # 初期値は [(1,0)]*length でも可
 # MinUpdT=LazySegTree(min,M,lambda f,x:f if f<M else x,lambda f,g:f if f<M else g,M,list)
 # MaxUpdT=LazySegTree(max,-M,lambda f,x:f if f<M else x,lambda f,g:f if f<M else g,M,list)
 # MaxUpdT2=LazySegTree(max,-M,lambda f,x:f if f>-M else x,lambda f,g:f if f>-M else g,-M,list) : 定数を-Mしか使わない版
-# SumUpdT=LazySegTree(lambda x,y:[x[0]+y[0],x[1]+y[1]],[0,0],lambda f,x:[x[0],f*x[0]]if f<M else x,lambda f,g:f if f<M else g,M,[[1,v]for v in list])
+# SumUpdT=LazySegTree(lambda x,y:(x[0]+y[0],x[1]+y[1]),(0,0),lambda f,x:(x[0],f*x[0])if f<M else x,lambda f,g:f if f<M else g,M,[(1,v)for v in list]) # 初期値は [(1,0)]*length でも可
 # (lambda式について、 f if f<M else g -> [f,g][f<M] などとした方が短いが、計算時間が増える)
 
 # T.set(p,x), T.get(p), T.prod(l,r) : 同上
