@@ -170,3 +170,8 @@ g=Graph((u,v,{0:w})for u,v,w in e) # with weight w in attribute 0
 # max-flow (min-cut)
 # from atcoder.maxflow import*
 # init: g=MFGraph(graph_size) -> edge_index=g.add_edge(from,to,cap) -> answer=g.flow(from,to), states=g.edges()
+
+# from atcoder.scc import* # 強連結成分分解+トポロジカルソート
+# g=SCCGraph(n) # n頂点グラフ生成
+# g.add_edge(from,to) # 有向辺生成
+# L=g.scc() # 強連結成分分解+トポロジカルソート の結果を頂点リストによる成分のリストとして取得
