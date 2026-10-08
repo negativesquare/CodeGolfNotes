@@ -134,6 +134,13 @@ g=Graph((u,v,{0:w})for u,v,w in e) # with weight w in attribute 0
 # T.get(p) : getting list[p]
 # T.prod(l,r) : getting op(list[l],...,list[r-1])
 
+# 応用: Previous Greater Element
+# (以下の場合、1-indexed で自分より左で値が自分以上の index のうち最大(直近)のもの、なければ 0)
+# from atcoder.segtree import*
+# n,*a=map(int,open(0).read().split());*l,i=0,
+# T=SegTree(max,0,n+1)
+# for v in a:i+=1;l+=T.prod(v,n+1);T.set(v,i)
+
 
 # atcoder.lazysegtree : segtreeに、区間の要素に一括で特定の処理(※)を行う機能を追加したライブラリ
 # ※: モノイド自己準同型からなるモノイドの元 すなわちモノイドS,集合Fに対し FF=F∋f→(FF(f):S∋x→f(x)∈S) で得られる FF(f)
