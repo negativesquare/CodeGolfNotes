@@ -90,3 +90,11 @@ print(sum(v for(_,t),v in d.items()if g(t)))
 # 転倒数(inversion number, BITの応用:BIT使用時は座標圧縮が必要になる場合あり。それなしでも下記の方が短い)
 from sortedcontainers import*;l=SortedList();i=s=0
 for v in a:s+=i-l.bisect(v);l+=v,;i+=1
+
+
+# Previous Greater Element
+# (以下の場合、1-indexed で自分より左で値が自分以上の index のうち最大(直近)のもの、なければ 0)
+# from atcoder.segtree import*
+# n,*a=map(int,open(0).read().split());*l,i=0,
+# T=SegTree(max,0,n+1)
+# for v in a:i+=1;l+=T.prod(v,n+1);T.set(v,i)
