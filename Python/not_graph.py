@@ -91,6 +91,12 @@ print(sum(v for(_,t),v in d.items()if g(t)))
 from sortedcontainers import*;l=SortedList();i=s=0
 for v in a:s+=i-l.bisect(v);l+=v,;i+=1
 
+# 転倒数2(座標圧縮なしBIT およびそのワンライナー)
+# from atcoder.fenwicktree import*;T=FenwickTree(n+1);s=0
+# for v in a:s+=T.sum(v+1,n+1);T.add(v,1)
+
+# from atcoder.fenwicktree import*;T=FenwickTree(n+1);s=sum(T.add(v,1)or T.sum(v+1,n+1)for v in a)
+
 
 # Previous Greater Element
 # (以下の場合、1-indexed で自分より左で値が自分以上の index のうち最大(直近)のもの、なければ 0)
