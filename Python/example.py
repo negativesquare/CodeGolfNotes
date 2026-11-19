@@ -1,15 +1,17 @@
 # -*- coding: utf-8 -*-
-x,y='Yes','No';print(''.join(sum([*zip(x+' '*len(y),y+' '*len(x))],())).rstrip()) # mix two strings alternately (preconstruct)
+x,y='Yes','No';print(''.join(sum(zip(x+' '*len(y),y+' '*len(x)),())).rstrip()) # mix two strings alternately (preconstruct)
 
 n=int(input())
 a,b=map(int,input().split())
 *l,=map(int,input().split()) # l=[*map(int,input().split())]
+I=lambda:[*map(int,input().split())]
 [int(input())for _ in[0]*n]
 lines=[*open(0)]
 n,*s=map(int,open(0)) # 1 row : 1 number
 *l,=map(int,open(0).read().split()) # same as l=[*map(int,open(0).read().split())]
 k,*l=map(int,open(0).read().split())
 *l,=map(int,[*open(0)][1].split())
+for v in[*open(0)][1].split():v=int(v);...
 T,l,x,y,Q,*E=map(int,open(0).read().split());a=E[:T];b=E[T:] # e.g. T\nl x y\nQ\nE1\nE2...
 # single-use:map(int,o.split()), reused:[*map(int,o.split())]
 a=[[*map(int,o.split())]for o in open(0)] # a=[[*map(int, input().split())]for _ in[0]*n]
