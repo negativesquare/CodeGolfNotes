@@ -164,7 +164,7 @@ g=Graph((u,v,{0:w})for u,v,w in e) # with weight w in attribute 0
 
 # DSU = Disjoint Set Union = Union-Find : これを使わない方が短い場合もある
 # from atcoder.dsu import*;D=DSU(n) # n = size of the universal set (0-indexed)
-# D.merge(a,b), D.same(a,b), D.size(a), D.groups() : self‑explanatory methods
+# D.merge(a,b), D.same(a,b), D.size(a), D.groups(), D.leader(a) : self‑explanatory methods
 
 
 # max-flow (min-cut)
